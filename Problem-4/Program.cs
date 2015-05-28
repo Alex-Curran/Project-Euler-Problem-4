@@ -16,12 +16,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Problem_3
+namespace Problem_4
 {
     class Program
     {
         static void Main(string[] args)
         {
+            int sum = 0;
+            for (int i = 999; i >= 0; i--)
+            {
+                for (int j = 999; i >= 0; i--)
+                {
+                    sum = i * j;
+
+                    if (isPalindrome(sum.ToString()))
+                    {
+                        Console.WriteLine(sum);
+                        i = 0;
+                        j = 0;
+                    }
+                }
+            }
+
+            
+        }
+
+        public static bool isPalindrome(string str)
+        {
+            if (str == reverseString(str))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static string reverseString(string str)
+        {
+            char[] charArray = str.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
     }
 }
