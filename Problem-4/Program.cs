@@ -23,21 +23,23 @@ namespace Problem_4
         static void Main(string[] args)
         {
             int sum = 0;
-            for (int i = 999; i >= 0; i--)
+            var palindromeList = new List<int>(); 
+
+            // Get all the palindromes 
+            for (int i = 100; i < 1000; i++)
             {
-                for (int j = 999; i >= 0; i--)
+                for (int j = 100; j < 1000; j++)
                 {
                     sum = i * j;
-
                     if (isPalindrome(sum.ToString()))
                     {
-                        Console.WriteLine(sum);
-                        i = 0;
-                        j = 0;
+                        palindromeList.Add(sum);
                     }
                 }
             }
 
+            // Find the largest
+            Console.WriteLine("The largest palindrome = {0}", palindromeList.Max());
             
         }
 
